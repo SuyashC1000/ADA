@@ -53,13 +53,13 @@ void merge(int arr[], int left, int mid, int right)
   free(R);
 }
 
-void quickSort(int arr[], int left, int right)
+void mergeSort(int arr[], int left, int right)
 {
   if (left < right)
   {
     int mid = left + (right - left) / 2;
-    quickSort(arr, left, mid);
-    quickSort(arr, mid + 1, right);
+    mergeSort(arr, left, mid);
+    mergeSort(arr, mid + 1, right);
     merge(arr, left, mid, right);
   }
 }
@@ -87,7 +87,7 @@ int main()
   clock_t start = clock();
   for (int i = 0; i < 1000; i++)
   {
-    quickSort(arr, 0, n - 1);
+    mergeSort(arr, 0, n - 1);
   }
   clock_t end = clock();
 
